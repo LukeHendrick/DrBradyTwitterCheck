@@ -6,6 +6,14 @@ const api = require('./api.js');
 app.use(compression());
 app.use(express.static(__dirname + '/dist'));
 
+app.all('*', (req, res, next) => {
+    if (req.headers['x-forwarded-proto'] != 'https') {
+        res.redirect('https://' + req.hostname + req.url)
+    } else {
+        next();
+    }
+})
+
 app.get('/', (req, res) => {
     res.sendFile('index.html');
 })
