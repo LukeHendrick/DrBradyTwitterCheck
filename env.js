@@ -1,3 +1,3 @@
 module.exports = {
-    "BEARER": `${process.env.bearer}`
+    "BEARER": ` Bearer ${process.env.bearer}`
 }
