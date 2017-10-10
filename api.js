@@ -5,7 +5,7 @@ module.exports= {
     listGet: function listGet(searchReq, cursor) {
         cursor = cursor || -1;
         url = `https://api.twitter.com/1.1/friends/ids.json?screen_name=${searchReq.name}&cursor=${cursor}`
-        token = bearer.BEARER
+        token = `Bearer ${process.env.bearer}`
         return axios.get(url, { 'headers': { 'Authorization': token } }).then((apiRes) => {
             idArray = apiRes.data.ids;
             for (x = 0; x < idArray.length; x++) {
