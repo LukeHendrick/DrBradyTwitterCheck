@@ -3,16 +3,15 @@ const compression = require('compression')
 const app = express();
 const PORT = process.env.PORT || 3000;
 const api = require('./api.js');
-app.use(compression());
-app.use(express.static(__dirname + '/dist'));
-
 app.use('*', (req, res, next) => {
-    if (req.headers['x-forwarded-proto'] != 'https') {
-        res.redirect('https://' + req.hostname + req.url)
+    if (req.headers['x-forwarded-proto'] !== 'https') {
+        return res.redirect('https://' + req.headers.host + req.url)
     } else {
-        next();
+        return next();
     }
 })
+app.use(compression());
+app.use(express.static(__dirname + '/dist'));
 
 app.get('/', (req, res) => {
     res.sendFile('index.html');
