@@ -54,7 +54,7 @@ module.exports= {
     },
     friendsGet: function friendsGet(searchReq) {
         url = `https://api.twitter.com/1.1/users/lookup.json?screen_name=${searchReq.name}`;
-        token = bearer.BEARER;
+        token = `Bearer ${process.env.bearer}`
         return axios.get(url, {'headers': {'Authorization': token}}).then((res) => {
             return res.data[0].friends_count
         })
