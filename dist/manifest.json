@@ -1,20 +1,20 @@
 {
-    "short_name": "Filler Name",
-    "name": "Your App's Name Here",
+    "short_name": "Twitter Checker",
+    "name": "Dr. Brady's Twitter Checker!",
     "icons": [
         {
-            "src": "icon-192x192.png",
+            "src": "hard_as_nails_192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "icon-192x192.png",
+            "src": "hard_as_nails_512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
     ],
     "start_url": "/?utm_source=homescreen",
     "background_color": "#222",
-    "theme_color": "#c41200",
+    "theme_color": "#E1FAF9",
     "display": "standalone"
 }
