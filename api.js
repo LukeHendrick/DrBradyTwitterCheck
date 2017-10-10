@@ -1,11 +1,11 @@
 const axios = require('axios')
-const bearer = require ('./env.js');
 
 module.exports= {
     listGet: function listGet(searchReq, cursor) {
         cursor = cursor || -1;
         url = `https://api.twitter.com/1.1/friends/ids.json?screen_name=${searchReq.name}&cursor=${cursor}`
         token = `Bearer ${process.env.bearer}`
+        console.log(token)
         return axios.get(url, { 'headers': { 'Authorization': token } }).then((apiRes) => {
             idArray = apiRes.data.ids;
             for (x = 0; x < idArray.length; x++) {
